@@ -16,6 +16,8 @@ struct Node* search_node(struct LinkedList* list, int data);
 
 struct Node* delete_node(struct LinkedList** list, int data);
 
+struct Node* update_node(struct LinkedList* list, int old_data, int new_data);
+
 void print_list(struct LinkedList* list);
 
 #endif

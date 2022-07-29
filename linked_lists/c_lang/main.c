@@ -14,9 +14,11 @@ int main(int argc, char **argv) {
     insert_node(&list, 1);
 
     // 5->3->9->0->2->1->null
+    printf("Initial list: ");
     print_list(list);
     printf("============================\n");
 
+    printf("Deleting node with value 0.\n");
     struct Node* deleted_node = delete_node(&list, 0);
     printf("Deleted node: %d\n", deleted_node->data);
     printf("Head: %d\n", list->head->data);
@@ -27,6 +29,7 @@ int main(int argc, char **argv) {
     printf("============================\n");
 
 
+    printf("Deleting node with value 5.\n");
     deleted_node = delete_node(&list, 5);
     printf("Deleted node: %d\n", deleted_node->data);
     printf("Head: %d\n", list->head->data);
@@ -36,12 +39,23 @@ int main(int argc, char **argv) {
     print_list(list);
     printf("============================\n");
 
+    printf("Deleting node with value 1.\n");
     deleted_node = delete_node(&list, 1);
     printf("Deleted node: %d\n", deleted_node->data);
     printf("Head: %d\n", list->head->data);
     printf("Tail: %d\n", list->tail->data);
 
     // 3->9->2->null
+    print_list(list);
+    printf("============================\n");
+
+    printf("Updating node with value 2 to value 7.\n");
+    struct Node* updated_node = update_node(list, 2, 7);
+    printf("Updated node: %d\n", updated_node->data);
+    printf("Head: %d\n", list->head->data);
+    printf("Tail: %d\n", list->tail->data);
+
+    // 3->9->7->null
     print_list(list);
     
     return 0;

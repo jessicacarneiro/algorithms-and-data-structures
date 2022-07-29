@@ -60,6 +60,13 @@ struct Node* delete_node(struct LinkedList** list, int data) {
     return node_to_delete;
 }
 
+struct Node* update_node(struct LinkedList* list, int old_data, int new_data) {
+    struct Node* node_to_be_updated = search_node(list, old_data);
+    node_to_be_updated->data = new_data;
+
+    return node_to_be_updated;
+}
+
 void print_list(struct LinkedList* list) {
     struct Node* current_node = list->head;
 
