@@ -3,12 +3,12 @@
 
 #include "linked_list.h"
 
-struct LinkedList* create_list() {
-    struct LinkedList* new_list = malloc(sizeof(struct LinkedList *));
+LinkedList* create_list() {
+    LinkedList* new_list = malloc(sizeof(LinkedList *));
     return new_list;
 }
 
-void insert_node(struct LinkedList** list, int data) {
+void insert_node(LinkedList** list, int data) {
     Node* new_node = create_node(data);
 
     if ((*list)->head == NULL) {
@@ -20,7 +20,7 @@ void insert_node(struct LinkedList** list, int data) {
     (*list)->tail = new_node;
 }
 
-Node* search_node(struct LinkedList* list, int data) {
+Node* search_node(LinkedList* list, int data) {
     Node* current_node = list->head;
 
     while (current_node != NULL && current_node->data != data) {
@@ -30,7 +30,7 @@ Node* search_node(struct LinkedList* list, int data) {
     return current_node;
 }
 
-Node* delete_node(struct LinkedList** list, int data) {
+Node* delete_node(LinkedList** list, int data) {
     // if list is empty, then there's nothing to delete
     if (is_empty(*list)) {
         return NULL;
@@ -60,14 +60,14 @@ Node* delete_node(struct LinkedList** list, int data) {
     return node_to_delete;
 }
 
-Node* update_node(struct LinkedList* list, int old_data, int new_data) {
+Node* update_node(LinkedList* list, int old_data, int new_data) {
     Node* node_to_be_updated = search_node(list, old_data);
     node_to_be_updated->data = new_data;
 
     return node_to_be_updated;
 }
 
-void print_list(struct LinkedList* list) {
+void print_list(LinkedList* list) {
     Node* current_node = list->head;
 
     while(current_node != NULL) {
@@ -78,7 +78,7 @@ void print_list(struct LinkedList* list) {
     printf("null\n");
 }
 
-int is_empty(struct LinkedList* list) {
+int is_empty(LinkedList* list) {
     if (list->head == NULL) {
         return 1;
     }

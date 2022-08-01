@@ -3,23 +3,23 @@
 
 #include "node.h"
 
-struct LinkedList {
+typedef struct {
     Node* head;
     Node* tail;
-};
+} LinkedList;
 
-struct LinkedList* create_list();
+LinkedList* create_list();
 
-void insert_node(struct LinkedList** list, int data);
+void insert_node(LinkedList** list, int data);
 
-Node* search_node(struct LinkedList* list, int data);
+Node* search_node(LinkedList* list, int data);
 
-Node* delete_node(struct LinkedList** list, int data);
+Node* delete_node(LinkedList** list, int data);
 
-Node* update_node(struct LinkedList* list, int old_data, int new_data);
+Node* update_node(LinkedList* list, int old_data, int new_data);
 
-void print_list(struct LinkedList* list);
+void print_list(LinkedList* list);
 
-int is_empty(struct LinkedList* list);
+int is_empty(LinkedList* list);
 
 #endif
