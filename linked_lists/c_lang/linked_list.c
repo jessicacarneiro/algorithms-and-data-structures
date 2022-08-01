@@ -32,7 +32,7 @@ struct Node* search_node(struct LinkedList* list, int data) {
 
 struct Node* delete_node(struct LinkedList** list, int data) {
     // if list is empty, then there's nothing to delete
-    if ((*list)->head == NULL) {
+    if (is_empty(*list)) {
         return NULL;
     }
     
@@ -76,4 +76,12 @@ void print_list(struct LinkedList* list) {
     }
 
     printf("null\n");
+}
+
+int is_empty(struct LinkedList* list) {
+    if (list->head == NULL) {
+        return 1;
+    }
+
+    return 0;
 }

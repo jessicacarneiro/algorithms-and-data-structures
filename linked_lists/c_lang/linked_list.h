@@ -20,4 +20,6 @@ struct Node* update_node(struct LinkedList* list, int old_data, int new_data);
 
 void print_list(struct LinkedList* list);
 
+int is_empty(struct LinkedList* list);
+
 #endif
