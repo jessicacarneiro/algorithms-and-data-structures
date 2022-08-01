@@ -9,7 +9,7 @@ struct LinkedList* create_list() {
 }
 
 void insert_node(struct LinkedList** list, int data) {
-    struct Node* new_node = create_node(data);
+    Node* new_node = create_node(data);
 
     if ((*list)->head == NULL) {
         (*list)->head = new_node;
@@ -20,8 +20,8 @@ void insert_node(struct LinkedList** list, int data) {
     (*list)->tail = new_node;
 }
 
-struct Node* search_node(struct LinkedList* list, int data) {
-    struct Node* current_node = list->head;
+Node* search_node(struct LinkedList* list, int data) {
+    Node* current_node = list->head;
 
     while (current_node != NULL && current_node->data != data) {
         current_node = current_node->next;
@@ -30,7 +30,7 @@ struct Node* search_node(struct LinkedList* list, int data) {
     return current_node;
 }
 
-struct Node* delete_node(struct LinkedList** list, int data) {
+Node* delete_node(struct LinkedList** list, int data) {
     // if list is empty, then there's nothing to delete
     if (is_empty(*list)) {
         return NULL;
@@ -38,18 +38,18 @@ struct Node* delete_node(struct LinkedList** list, int data) {
     
     // check if node to be deleted is in the head of list
     if ((*list)->head->data == data) {
-        struct Node* node_to_delete = (*list)->head;
+        Node* node_to_delete = (*list)->head;
         (*list)->head = (*list)->head->next;
 
         return node_to_delete;     
     }
     
-    struct Node* previous_node = (*list)->head;
+    Node* previous_node = (*list)->head;
     while (previous_node->next != NULL && previous_node->next->data != data) {
         previous_node = previous_node->next;
     }
 
-    struct Node* node_to_delete = previous_node->next;
+    Node* node_to_delete = previous_node->next;
     previous_node->next = node_to_delete->next;
 
     // if node to delete is in tail, move tail to previous node
@@ -60,15 +60,15 @@ struct Node* delete_node(struct LinkedList** list, int data) {
     return node_to_delete;
 }
 
-struct Node* update_node(struct LinkedList* list, int old_data, int new_data) {
-    struct Node* node_to_be_updated = search_node(list, old_data);
+Node* update_node(struct LinkedList* list, int old_data, int new_data) {
+    Node* node_to_be_updated = search_node(list, old_data);
     node_to_be_updated->data = new_data;
 
     return node_to_be_updated;
 }
 
 void print_list(struct LinkedList* list) {
-    struct Node* current_node = list->head;
+    Node* current_node = list->head;
 
     while(current_node != NULL) {
         printf("%d->", current_node->data);

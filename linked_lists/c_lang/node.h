@@ -1,13 +1,13 @@
 #ifndef __NODE_H__
 #define __NODE_H__
 
-struct Node {
+typedef struct Node {
     int data;
     struct Node* next;
-};
+} Node;
 
-struct Node* create_node(int data);
+Node* create_node(int data);
 
-void print_node(struct Node node);
+void print_node(Node node);
 
 #endif
